@@ -1,4 +1,5 @@
 # Pytorch From Basics
+This series of notebooks are my learning by following through https://www.learnpytorch.io by mrdbourke.
 
 ## Index of notebooks
 
