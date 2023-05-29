@@ -61,9 +61,3 @@ def get_data(
         print(f"{file_path} cleand after unzip")
 
     return folder_name
-
-
-get_data(
-    request_url="https://github.com/mrdbourke/pytorch-deep-learning/raw/main/data/pizza_steak_sushi.zip",
-    data_path="/Users/jayaprakashsivagami/Documents/Tech/ML/pytorch/computer_vision/data",
-)
