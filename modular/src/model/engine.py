@@ -129,7 +129,7 @@ def test_step(
 def train_model(
     model: nn.Module,
     train_dataloder: torch.utils.data.DataLoader,
-    test_dataloader: torch.util.data.DataLoader,
+    test_dataloader: torch.utils.data.DataLoader,
     optimizer: torch.optim.Optimizer,
     loss_fn: nn.Module,
     epochs: int,
@@ -146,7 +146,7 @@ def train_model(
     Args:
         model (nn.Module): A PyTorch model to be trained and tested
         train_dataloder (torch.utils.data.DataLoader): A DataLoader instance for the model to be trained on
-        test_dataloader (torch.util.data.DataLoader): A DataLoader instance for the model to be tested on.
+        test_dataloader (torch.utils.data.DataLoader): A DataLoader instance for the model to be tested on.
         optimizer (torch.optim.Optimizer): A PyTorch optimizer to help minimize the loss function.
         loss_fn (nn.Module): A PyTorch loss function to calculate loss on test datasets
         epochs (int): An integer number of epochs to train the model
