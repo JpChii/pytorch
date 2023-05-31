@@ -100,7 +100,7 @@ def test_step(
     model.eval()
 
     # Loss, accuracy
-    test_loss, test_accuracy = 0, 0
+    test_loss, test_acc = 0, 0
 
     # Turn on intefernce context manager
     with torch.inference_mode():
