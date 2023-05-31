@@ -100,7 +100,7 @@ def test_step(
     model.eval()
 
     # Loss, accuracy
-    test_loss, test_acc = 0, 0
+    test_loss, test_accuracy = 0, 0
 
     # Turn on intefernce context manager
     with torch.inference_mode():
@@ -118,7 +118,7 @@ def test_step(
 
             # Calculate and accumulate accuracy metric across all batches
             test_pred_labels = test_pred_logits.argmax(dim=1)
-            test_acc += ((test_pred_labels == y).sum().item()) / len(test_pred_labels)
+            test_accuracy += ((test_pred_labels == y).sum().item()) / len(test_pred_labels)
 
         # Adjust metrics to get average loss and accuracy per batch
         test_loss = test_loss / len(dataloader)
@@ -166,7 +166,7 @@ def train_model(
         train_loss: [1, 2],
         train_acc: [1, 2],
         test_loss: [1, 2],
-        test_acc: [1, 2]
+        test_accuracy: [1, 2]
         }
     """
 
@@ -175,7 +175,7 @@ def train_model(
         "train_loss": [],
         "test_loss": [],
         "train_acc": [],
-        "test_acc": [],
+        "test_accuracy": [],
     }
 
     # Loop through training and testing steps for a number of epoochs
@@ -188,7 +188,7 @@ def train_model(
             device=device,
         )
 
-        test_loss, test_acc = test_step(
+        test_loss, test_accuracy = test_step(
             model=model, dataloader=test_dataloader, loss_fn=loss_fn, device=device
         )
 
@@ -198,14 +198,14 @@ def train_model(
             f"train_loss: {train_loss:.4f} | "
             f"train_acc: {train_acc:.4f} | "
             f"test_loss: {test_loss:.4f} | "
-            f"test_acc: {test_acc:.4f}"
+            f"test_accuracy: {test_accuracy:.4f}"
         )
 
         # Update results dictionary
         results["train_loss"].append(train_loss)
         results["test_loss"].append(test_loss)
         results["train_acc"].append(train_acc)
-        results["test_acc"].append(test_acc)
+        results["test_accuracy"].append(test_accuracy)
 
     # Return the filled results at the end of epochs
     return results
